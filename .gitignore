@@ -1,4 +1,5 @@
 *.jpg
 node_modules
 .vscode
-public/*
+public/*.jpg
+public/*.json
