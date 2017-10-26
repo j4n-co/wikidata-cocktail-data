@@ -1,0 +1,6 @@
+_headers
+## A path:
+/data.json
+  Access-Control-Allow-Origin: *
+/*.jpg
+  Access-Control-Allow-Origin: *
