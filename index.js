@@ -66,7 +66,7 @@ function populateDB(results) {
 function resolveImageUrls( cocktails ){
 	cocktails.forEach(cocktail => {
 		if (cocktail.image) {
-			throttledRequest(cocktail.image).pipe(fs.createWriteStream(`public/${encodeURIComponent(cocktail.label)}.jpg`))
+			throttledRequest(cocktail.image).pipe(fs.createWriteStream(`public/${escape(cocktail.label)}.jpg`))
 		}
 	})
 }
