@@ -66,7 +66,7 @@ function populateDB(results) {
 function resolveImageUrls( cocktails ){
 	cocktails.forEach(cocktail => {
 		if (cocktail.image) {
-			throttledRequest(cocktail.image).pipe(fs.createWriteStream(`public/${cocktail.label}.jpg`))
+			throttledRequest(cocktail.image).pipe(fs.createWriteStream(`public/${encodeURIComponent(cocktail.label)}.jpg`))
 		}
 	})
 }
@@ -84,6 +84,6 @@ request({ url: SQARQL_REQUEST_URL })
 	}
 } )
 .then( dataObj => {
-	fs.writeFile("public/data.json", JSON.stringify(dataObj));
+	fs.writeFile("public/data.json", JSON.stringify(dataObj, null, '\t'));
 	resolveImageUrls(dataObj.cocktails)
 } )
